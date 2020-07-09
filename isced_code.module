@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains isced_code.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function isced_code_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the isced_code module.
+    case 'help.page.isced_code':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('ISCED codes as select options') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Get ISCED codes.
+ *
+ * Get associative array of ISCED codes from a source file.
+ *
+ * @return array $options
+ */
+function isced_code_get_values() {
+  $source_file = 'isced_codes.inc';
+  include_once $source_file;
+
+  $options = [];
+  foreach ($isced_codes as $broad => $narrow_array) {
+    $group = [];
+    foreach ($narrow_array as $narrow => $detailed_array) {
+      // Don't print the narrow field at all...
+      //$narrow_key = substr($narrow, 0, 3);
+      //$group[$narrow_key] = $narrow;
+      foreach ($detailed_array as $key => $value) {
+        $group[$key] = $value;
+      }
+    }
+    $options[$broad] = $group;
+  }
+
+  return $options;
+}

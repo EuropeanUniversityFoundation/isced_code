@@ -1,0 +1,9 @@
+{
+    "name": "euf/isced_code",
+    "type": "drupal-module",
+    "description": "ISCED codes as select options",
+    "keywords": [
+    ],
+    "homepage": "https://github.com/EuropeanUniversityFoundation/isced_code",
+    "minimum-stability": "dev"
+}

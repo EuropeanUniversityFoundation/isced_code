@@ -1,0 +1,20 @@
+field.widget.settings.isced_code_options:
+  type: mapping
+  label: 'ISCED code options widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'
+field.widget.settings.isced_code_select:
+  type: mapping
+  label: 'ISCED code select widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'
