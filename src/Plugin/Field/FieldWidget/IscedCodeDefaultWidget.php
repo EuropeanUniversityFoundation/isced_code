@@ -29,6 +29,7 @@ class IscedCodeDefaultWidget extends WidgetBase {
         '#type' => 'select',
         '#options' => $isced_codes,
         '#empty_value' => '',
+        '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
         '#description' => t('Select the ISCED code'),
       ];
 

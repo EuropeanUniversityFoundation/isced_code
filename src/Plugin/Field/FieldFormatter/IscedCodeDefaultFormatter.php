@@ -5,6 +5,7 @@ namespace Drupal\isced_code\Plugin\Field\FieldFormatter;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\OptGroup;
 
 /**
  * Plugin implementation of the 'isced_code_default' formatter.
@@ -23,9 +24,12 @@ class IscedCodeDefaultFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
+    $isced_codes = \isced_code_get_values();
+    $options = OptGroup::flattenOptions($isced_codes);
     $elements = [];
     foreach ($items as $delta => $item) {
-      $elements[$delta] = ['#markup' => $item->value];
+      $value = $item->value;
+      $elements[$delta] = ['#markup' => $options[$value]];
     }
     return $elements;
   }
