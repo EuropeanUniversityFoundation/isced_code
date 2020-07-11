@@ -2,9 +2,9 @@
 
 namespace Drupal\isced_code\Plugin\Field\FieldType;
 
+use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\TypedData\DataDefinition;
-use Drupal\options\Plugin\Field\FieldType\ListStringItem;
 
 /**
  * Plugin implementation of the 'isced_code' field type.
@@ -14,11 +14,11 @@ use Drupal\options\Plugin\Field\FieldType\ListStringItem;
  *   label = @Translation("ISCED code"),
  *   description = @Translation("ISCED codes as select options"),
  *   category = @Translation("EWP"),
- *   default_widget = "options_select",
- *   default_formatter = "isced_code_formatter",
+ *   default_widget = "isced_code_default",
+ *   default_formatter = "isced_code_default",
  * )
  */
-class IscedCode extends ListStringItem {
+class IscedCodeItem extends FieldItemBase {
 
   /**
    * {@inheritdoc}
@@ -34,7 +34,8 @@ class IscedCode extends ListStringItem {
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties = parent::propertyDefinitions($field_definition);
+    $properties['value'] = DataDefinition::create('string')
+      ->setLabel(t('ISCED code'));
 
     return $properties;
   }
@@ -43,9 +44,18 @@ class IscedCode extends ListStringItem {
    * {@inheritdoc}
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    $schema = parent::schema($field_definition);
-
-    return $schema;
+    return [
+      'columns' => [
+        'value' => [
+          'type' => 'char',
+          'length' => 255,
+          'not null' => FALSE,
+        ],
+      ],
+      'indexes' => [
+        'value' => ['value'],
+      ],
+    ];
   }
 
   /**
