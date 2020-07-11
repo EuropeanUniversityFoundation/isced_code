@@ -23,16 +23,6 @@ class IscedCodeItem extends FieldItemBase {
   /**
    * {@inheritdoc}
    */
-  public static function defaultStorageSettings() {
-    return [
-      'allowed_values' => [],
-      'allowed_values_function' => 'isced_code_get_values',
-    ] + parent::defaultStorageSettings();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     $properties['value'] = DataDefinition::create('string')
       ->setLabel(t('ISCED code'));
