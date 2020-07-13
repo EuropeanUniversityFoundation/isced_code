@@ -4,4 +4,5 @@ description: 'ISCED codes as select options'
 core: 8.x
 package: 'EWP'
 dependencies:
-  - options
+  - drupal:field
+  - drupal:options
