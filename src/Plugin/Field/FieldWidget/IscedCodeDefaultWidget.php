@@ -12,7 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
  * @FieldWidget(
  *   id = "isced_code_default",
  *   module = "isced_code",
- *   label = @Translation("ISCED code select options"),
+ *   label = @Translation("Select list"),
  *   field_types = {
  *     "isced_code"
  *   }
