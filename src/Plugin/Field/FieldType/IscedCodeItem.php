@@ -13,7 +13,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   id = "isced_code",
  *   label = @Translation("ISCED code"),
  *   description = @Translation("ISCED codes as select options"),
- *   category = @Translation("EWP"),
+ *   category = @Translation("EWP select options"),
  *   default_widget = "isced_code_default",
  *   default_formatter = "isced_code_default",
  * )
