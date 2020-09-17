@@ -26,12 +26,12 @@ class IscedCodeDefaultWidget extends WidgetBase {
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $isced_codes = \isced_code_get_values();
     $element['value'] = $element + [
-        '#type' => 'select',
-        '#options' => $isced_codes,
-        '#empty_value' => '',
-        '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
-        '#description' => t('Select the ISCED code'),
-      ];
+      '#type' => 'select',
+      '#options' => $isced_codes,
+      '#empty_value' => '',
+      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
+      '#description' => t('Select the ISCED code'),
+    ];
 
     return $element;
   }

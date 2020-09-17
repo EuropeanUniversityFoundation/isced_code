@@ -32,7 +32,7 @@ function isced_code_help($route_name, RouteMatchInterface $route_match) {
  */
 function isced_code_get_values() {
   $source_file = 'isced_codes.inc';
-  include_once $source_file;
+  include $source_file;
 
   $options = [];
   foreach ($isced_codes as $broad => $narrow_array) {
