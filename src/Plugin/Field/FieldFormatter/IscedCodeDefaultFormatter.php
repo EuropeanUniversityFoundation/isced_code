@@ -24,7 +24,7 @@ class IscedCodeDefaultFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $isced_codes = \isced_code_get_values();
+    $isced_codes = \Drupal::service('isced_code.isced_code')->getOptions();
     $options = OptGroup::flattenOptions($isced_codes);
     $elements = [];
     foreach ($items as $delta => $item) {

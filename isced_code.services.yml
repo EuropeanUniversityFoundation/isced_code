@@ -1,0 +1,4 @@
+services:
+  isced_code.isced_code:
+    class: Drupal\isced_code\IscedCodeManager
+    arguments: []
