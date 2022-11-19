@@ -24,13 +24,33 @@ class IscedCodeDefaultWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $isced_codes = \Drupal::service('isced_code.isced_code')->getOptions();
+    $code_options = \Drupal::service('isced_code.isced_code')->getOptions();
+
+    $default_code = $items[$delta]->value ?? NULL;
+    $code_exists = FALSE;
+
+    if (!empty($default_code)) {
+      foreach ($code_options as $group => $list) {
+        if (\array_key_exists($default_code, $list)) {
+          $code_exists = TRUE;
+          break;
+        }
+      }
+    }
+
+    if (!empty($default_code) && !$code_exists) {
+      $extra_option = [$default_code => $default_code];
+      $extra_group = [$this->t('Current value')->render() => $extra_option];
+
+      $code_options = \array_merge($extra_group, $code_options);
+    }
+
     $element['value'] = $element + [
       '#type' => 'select',
-      '#options' => $isced_codes,
+      '#options' => $code_options,
       '#empty_value' => '',
-      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
-      '#description' => t('Select the ISCED code'),
+      '#default_value' => $default_code,
+      '#description' => $this->t('Select the ISCED code'),
     ];
 
     return $element;

@@ -26,11 +26,17 @@ class IscedCodeDefaultFormatter extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $isced_codes = \Drupal::service('isced_code.isced_code')->getOptions();
     $options = OptGroup::flattenOptions($isced_codes);
+
     $elements = [];
+
     foreach ($items as $delta => $item) {
-      $value = $item->value;
-      $elements[$delta] = ['#markup' => $options[$value]];
+      $value = (\array_key_exists($item->value, $options))
+        ? $options[$item->value]
+        : $item->value;
+
+      $elements[$delta] = ['#markup' => $value];
     }
+
     return $elements;
   }
 
