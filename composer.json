@@ -1,9 +1,23 @@
 {
     "name": "euf/isced_code",
     "type": "drupal-module",
-    "description": "ISCED codes as select options",
+    "description": "Provides a field type with ISCED-F codes as options.",
     "keywords": [
+        "Drupal",
+        "Field type"
     ],
     "homepage": "https://github.com/EuropeanUniversityFoundation/isced_code",
+    "support": {
+        "issues": "https://github.com/EuropeanUniversityFoundation/isced_code/issues",
+        "source": "https://github.com/EuropeanUniversityFoundation/isced_code"
+    },
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Tiago Simões",
+            "email": "tiago.simoes@uni-foundation.eu",
+            "role": "Maintainer"
+        }
+    ],
     "minimum-stability": "dev"
 }
