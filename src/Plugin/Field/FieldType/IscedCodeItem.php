@@ -13,8 +13,11 @@ use Drupal\Core\TypedData\DataDefinition;
  * @FieldType(
  *   id = "isced_code",
  *   label = @Translation("ISCED code"),
- *   description = @Translation("ISCED codes as select options"),
- *   category = @Translation("EWP select options"),
+ *   description = {
+ *     @Translation("Values stored are predefined 4-digit text values"),
+ *     @Translation("For example, '0613' => '0613 Software and applications development and analysis'"),
+ *   },
+ *   category = "selection_list",
  *   default_widget = "isced_code_default",
  *   default_formatter = "isced_code_default",
  * )
