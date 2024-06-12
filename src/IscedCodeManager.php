@@ -264,10 +264,10 @@ class IscedCodeManager {
     $options = [];
     foreach ($this->iscedCodes as $broad => $narrow_array) {
       $group = [];
-      foreach ($narrow_array as $narrow => $detailed_array) {
+      foreach ($narrow_array as $detailed_array) {
         // Don't print the narrow field at all...
-        //$narrow_key = substr($narrow, 0, 3);
-        //$group[$narrow_key] = $narrow;
+        // $narrow_key = substr($narrow, 0, 3);
+        // $group[$narrow_key] = $narrow;
         foreach ($detailed_array as $key => $value) {
           $group[$key] = $value;
         }

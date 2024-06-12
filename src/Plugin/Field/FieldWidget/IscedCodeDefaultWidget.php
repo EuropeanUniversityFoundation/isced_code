@@ -30,7 +30,7 @@ class IscedCodeDefaultWidget extends WidgetBase {
     $code_exists = FALSE;
 
     if (!empty($default_code)) {
-      foreach ($code_options as $group => $list) {
+      foreach ($code_options as $list) {
         if (\array_key_exists($default_code, $list)) {
           $code_exists = TRUE;
           break;

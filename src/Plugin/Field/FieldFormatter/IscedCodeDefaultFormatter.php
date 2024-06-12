@@ -4,7 +4,6 @@ namespace Drupal\isced_code\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\OptGroup;
 
 /**
