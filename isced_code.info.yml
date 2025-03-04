@@ -1,7 +1,7 @@
 name: 'ISCED code field'
 type: module
 description: 'ISCED codes as select options'
-core_version_requirement: ^9.5 || ^10
+core_version_requirement: ^9.5 || ^10 | ^11
 package: 'Field types'
 dependencies:
   - drupal:field
